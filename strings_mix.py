@@ -3,7 +3,7 @@ https://www.codewars.com/kata/5629db57620258aa9d000014
 """
 
 
-def mix(s1: str, s2: str):
+def mix(s1: str, s2: str) -> str:
     array = []
     for i in 'abcdefghijklmnopqrstuvwxyz':
         if s1.count(i) >= 2 and s1.count(i) > s2.count(i):

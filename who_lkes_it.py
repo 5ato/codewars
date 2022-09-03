@@ -3,7 +3,7 @@ https://www.codewars.com/kata/5266876b8f4bf2da9b000362
 """
 
 
-def likes1(names):
+def likes1(names: list) -> str:
     if len(names) == 0:
         return 'no one likes this'
     elif len(names) == 1:

@@ -3,7 +3,7 @@ https://www.codewars.com/kata/52597aa56021e91c93000cb0
 """
 
 
-def move_zeros1(lst):
+def move_zeros1(lst: list) -> list:
     array_other_number = []
     array_zero_number = []
     for i in lst:

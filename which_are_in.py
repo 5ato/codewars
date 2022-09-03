@@ -3,7 +3,7 @@ https://www.codewars.com/kata/550554fd08b86f84fe000a58
 """
 
 
-def in_array1(array1, array2):
+def in_array1(array1: list, array2: list) -> list:
     seen = set()
     for j in array2:
         for i in array1:

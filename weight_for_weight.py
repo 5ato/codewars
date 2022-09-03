@@ -3,7 +3,7 @@ https://www.codewars.com/kata/55c6126177c9441a570000cc
 """
 
 
-def order_weight(strng):
+def order_weight(strng: str) -> str:
     strng = sorted(strng.split())
     summing = []
     for i in strng:
