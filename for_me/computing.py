@@ -7,6 +7,18 @@ def fibo(diapason: int) -> list:
     return arr
 
 
+def memo_for_fibo(func):
+    _cache = {}
+
+    def wrapper(n):
+        if n not in _cache:
+            result = func(n)
+            _cache[n] = result
+            return result
+        return _cache[n]
+    return wrapper
+
+
 # recursion
 def fib_req(diapason: int) -> int:
     if diapason <= 1:
