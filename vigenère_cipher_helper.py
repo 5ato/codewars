@@ -1,3 +1,8 @@
+"""
+https://www.codewars.com/kata/52d1bd3694d26f8d6e0000d3
+"""
+
+
 class VigenereCipher:
     def __init__(self, key: str, alphabet: str) -> None:
         self.key: str = key
@@ -44,7 +49,6 @@ class VigenereCipher:
                 index += 1
                 result.append(i)
         return ''.join(result)
-
 
 
 def main():
