@@ -31,7 +31,7 @@ def lifo(string: str) -> bool:
 
 
 def main():
-    print(lifo('((aboba) Любит [{(Abyrtish)}})'))
+    pass
 
 
 if __name__ == '__main__':
