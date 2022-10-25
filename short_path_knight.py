@@ -13,20 +13,20 @@ y_chess = {
 }
 
 
-def is_inside(x, y):
+def is_inside(x: int, y: int) -> bool:
     if (1 <= x <= 8) and (1 <= y <= 8):
         return True
     return False
 
 
 class Coordinate:
-    def __init__(self, x, y, dist=0):
-        self.x = x_chess[x]
-        self.y = y_chess[y]
-        self.dist = dist
+    def __init__(self, x: str or int, y: str or int, dist: int = 0) -> None:
+        self.x: int = x_chess[x]
+        self.y: int = y_chess[y]
+        self.dist: int = dist
 
 
-def knight(p1: str, p2: str):
+def knight(p1: str, p2: str) -> int:
     dx = [2, 2, -2, -2, 1, 1, -1, -1]
     dy = [1, -1, 1, -1, 2, -2, 2, -2]
 
