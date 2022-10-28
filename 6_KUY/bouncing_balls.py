@@ -1,3 +1,8 @@
+"""
+https://www.codewars.com/kata/5544c7a5cb454edb3c000047
+"""
+
+
 def bouncing_balls(h: int, bounce: float, window: int or float) -> int:
     if (h > 0) and (0 < bounce < 1) and (window < h):
         count = 0
