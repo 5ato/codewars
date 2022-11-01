@@ -55,7 +55,7 @@ def permutation_generator(n):
 
 
 def main():
-    print_combination(3, 5)
+    permutation_generator(11)
 
 
 if __name__ == '__main__':
