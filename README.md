@@ -16,7 +16,7 @@ ___________________________________________________________
 
 * Creating a repository like this is discouraged by Codewars
 
-- In this repository you will not find answers to 6-7 kata ___(only two tasks from 7 kata)___
+- In this repository you will not find answers to 7-8 kata ___(only two tasks from 7 kata)___
 
 ____________________________________________________________
 
