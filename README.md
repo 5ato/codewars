@@ -6,4 +6,14 @@ ___________________________________________________________
 
 ___________________________________________________________
 
-In this repository you will not find answers to 6-7 kata ___(only two tasks from 7 kata)___
+### Disclaimer
+
+- Codewarriors are strongly encouraged not to look at your solutions to Kata until they have completed it themselves or at least took the time to think about their own approaches
+
+* Codewarriors should not submit your solutions as their own
+
+- You will not be accepting contributions of any form to this repo
+
+* Creating a repository like this is discouraged by Codewars
+
+- In this repository you will not find answers to 6-7 kata ___(only two tasks from 7 kata)___
