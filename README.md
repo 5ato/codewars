@@ -17,3 +17,21 @@ ___________________________________________________________
 * Creating a repository like this is discouraged by Codewars
 
 - In this repository you will not find answers to 6-7 kata ___(only two tasks from 7 kata)___
+
+____________________________________________________________
+
+### Repository Structure
+
+There's a folder for each kata nested in its own kyu
+
+```ascii
+├── 4-kyu/
+│   ├── path_finder_can you_reach_the_exit.py
+│   └── range_extraction.py
+│   └── ...
+|
+├── 5-kyu/
+│   ├── RGB_to_hex_conversion.py
+|   ├── memoized_fibonacci.py
+│   └── ...
+```
