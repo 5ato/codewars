@@ -5,13 +5,11 @@ https://www.codewars.com/kata/5765870e190b1472ec0022a2
 
 def path_finder(maze: str) -> bool:
     maze = maze.split('\n')
-    m = len(maze)
-    n = len(maze[-1])
-    point = [0, 0]
+    m, n = len(maze), len(maze[-1])
     finish = [n-1, m-1]
     used = [[False] * n for _ in range(m)]
     used[0][0] = True
-    queue = [point]
+    queue = [[0, 0]]
     delta = [(0, -1), (0, 1), (1, 0), (-1, 0)]
     while queue:
         x, y = queue.pop(0)
