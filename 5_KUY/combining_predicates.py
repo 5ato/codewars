@@ -1,4 +1,4 @@
-from functools import update_wrapper
+from typing import Callable, Any
 
 
 """
@@ -6,35 +6,30 @@ https://www.codewars.com/kata/626a887e8a33feabd6ad8f25
 """
 
 
-class P(object):
-    def __init__(self, predicate):
-        self.pred = predicate
-
-    def __call__(self, *args, **kwargs):
-        return self.pred(*args, **kwargs)
-
-    def __and__(self, predicate):
-        def func(*args, **kwargs):
-            return self.pred(*args, **kwargs) and predicate(*args, **kwargs)
-        return P(func)
-
-    def __or__(self, predicate):
-        def func(*args, **kwargs):
-            return self.pred(*args, **kwargs) or predicate(*args, **kwargs)
-        return P(func)
-
+class predicate:
+    def __init__(self, func: Callable):
+        self.func: Callable = func
+        
+    def __call__(self, *args: Any, **kwargs: Any):
+        return self.func(*args, **kwargs)
+        
+    def __and__(self, other: 'predicate'):
+        def func(*args: Any, **kwargs: Any):
+            return self.func(*args, **kwargs) and other.func(*args, **kwargs)
+        return predicate(func)
+    
+    def __or__(self, other: 'predicate'):
+        def func(*args: Any, **kwargs: Any):
+            return self.func(*args, **kwargs) or other.func(*args, **kwargs)
+        return predicate(func)
+    
     def __invert__(self):
-        def func(*args, **kwargs):
-            return not self.pred(*args, **kwargs)
-        return P(func)
+        def func(*args: Any, **kwargs: Any):
+            return not self.func(*args, **kwargs)
+        return predicate(func)
 
 
-def predicate(func):
-    """Decorator that constructs a predicate (``P``) instance from
-    the given function."""
-    result = P(func)
-    update_wrapper(result, func)
-    return result
+predicate = predicate
 
 
 @predicate
