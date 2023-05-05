@@ -27,11 +27,10 @@ class ABCWorker(IWorker):
         self.__next_worker: 'IWorker' = iworker
         return iworker
     
-    def execute(self, command: str) -> str:
+    def execute(self, command: str) -> Optional[str]:
         if self.__next_worker is not None:
             return self.__next_worker.execute(command)
-        else:
-            return None
+        return None
         
 
 class Desiner(ABCWorker):
