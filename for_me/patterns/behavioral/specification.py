@@ -52,6 +52,27 @@ class NotSpecification(Specification):
         return self.subject.is_satisfied(candidate)
 
 
+@dataclass
+class User:
+    id: int
+    name: str
+    email: str
+
+
+class UserSpecification(Specification):
+    def is_satisfied(self, candidate: User) -> bool:
+        return 'g' in candidate.name
+
+
+if __name__ == '__main__':
+    s = UserSpecification()
+    u1 = User(1, 'aboba', 'aboba@gmail')
+    u2 = User(2, 'gopa', 'gopa@mail')
+    u3 = User(3, 'boba', 'boba@gmail')
+
+    print(s.is_satisfied(u2) and not s.is_satisfied(u1))
+
+
 # ----------------------------- Meta implementation ----------------------------- #
 
 # Реализация Specification через Метаклассы
