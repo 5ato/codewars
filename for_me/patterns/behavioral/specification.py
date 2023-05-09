@@ -49,7 +49,7 @@ class NotSpecification(Specification):
     subject: Specification
 
     def is_satisfied(self, candidate: Any) -> bool:
-        return self.subject.is_satisfied(candidate)
+        return not self.subject.is_satisfied(candidate)
 
 
 @dataclass
