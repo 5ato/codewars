@@ -75,3 +75,80 @@ class Invoker:
             for executor in self.history:
                 executor.execute()
         self.history.clear()
+
+
+class ABCCommand(ABC):
+    @abstractmethod
+    def positive(self):
+        raise NotImplementedError()
+
+    @abstractmethod
+    def negative(self):
+        raise NotImplementedError()
+    
+
+class Conveyor:
+    def on(self):
+        print('start conveyor')
+
+    def off(self):
+        print('finish conveyor')
+
+    def speed_increase(self):
+        print('speed increase')
+
+    def speed_decrease(self):
+        print('speed decrease')
+
+
+class ConveyorWorkCommand(ABCCommand):
+    def __init__(self, conveyor: Conveyor) -> None:
+        self.conveyor: Conveyor = conveyor
+
+    def positive(self):
+        return self.conveyor.on()
+    
+    def negative(self):
+        return self.conveyor.off()
+    
+
+class ConveyorAdjustCommand(ABCCommand):
+    def __init__(self, conveyor: Conveyor) -> None:
+        self.conveyor: Conveyor = conveyor
+
+    def positive(self):
+        return self.conveyor.speed_increase()
+    
+    def negative(self):
+        return self.conveyor.speed_decrease()
+    
+
+class Invorker:
+    def __init__(self) -> None:
+        self.commands: list[ABCCommand] = [None, None]
+        self.history: list[ABCCommand] = []
+
+    def set_command(self, button: int, command: ABCCommand):
+        self.commands[button] = command
+    
+    def press_on(self, button: int):
+        self.commands[button].positive()
+        self.history.append(self.commands[button])
+
+    def press_off(self):
+        self.commands.pop().negative()
+
+
+if __name__ == '__main__':
+    c = Conveyor()
+    wc = ConveyorWorkCommand(c)
+    ac = ConveyorAdjustCommand(c)
+
+    i = Invorker()
+    i.set_command(0, wc)
+    i.set_command(1, ac)
+    i.press_on(0)
+    i.press_on(1)
+
+    i.press_off()
+    i.press_off()
