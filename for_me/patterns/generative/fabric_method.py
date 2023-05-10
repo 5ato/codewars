@@ -84,3 +84,54 @@ class ConcreteProduct1(Product):
 class ConcreteProduct2(Product):
     def operation(self) -> str:
         return "{Result of the ConcreteProduct2}"
+
+
+# Ниже банальный пример исполбзования паттерна фабричный метод
+
+
+class VideoExporter(ABC):
+    @abstractmethod
+    def prepare_export(self, video_data):
+        pass
+
+    @abstractmethod
+    def do_export(self, folder: str):
+        pass
+
+class LosslessVideoExporter(VideoExporter):
+    def prepare_export(self, video_data):
+        print("Preparing video data for lossless export.")
+
+    def do_export(self, folder):
+        print(f"Exporting video data in lossless format to {folder}.")
+
+
+class H264BPVideoExporter(VideoExporter):
+    def prepare_export(self, video_data):
+        print("Preparing video data for H.264 (Baseline) export.")
+
+    def do_export(self, folder):
+        print(f"Exporting video data in H.264 (Baseline) format to {folder}.")
+
+
+class H264Hi422PVideoExporter(VideoExporter):
+    def prepare_export(self, video_data):
+        print("Preparing video data for H.264 (Hi422P) export.")
+
+    def do_export(self, folder):
+        print(f"Exporting video data in H.264 (Hi422P) format to {folder}.")
+
+
+class VideoType:
+    lossless = 'lossless'
+    h264BP = 'h264BP'
+    h264Hi422P = 'h264Hi422P'
+
+
+def factory_method(type: VideoType) -> VideoExporter:
+    factory_dict = {
+        VideoType.lossless: LosslessVideoExporter,
+        VideoType.h264BP: H264BPVideoExporter,
+        VideoType.h264Hi422P: H264Hi422PVideoExporter,
+    }
+    return factory_dict[type]()
