@@ -8,6 +8,9 @@ from typing import Any
 
 
 class Singleton:
+    
+    __instance = None
+
     def __new__(cls, *args: Any, **kwargs: Any) -> None:
         if cls.instance is None:
             cls.instance = super().__new__(cls, *args, **kwargs)
