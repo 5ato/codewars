@@ -15,16 +15,12 @@ def insert_sort(arr: list) -> list:
     return arr
 
 
-def bubble_sort(arr):
-    swapping = True
-    consolidation = -1
-    while swapping:
-        swapping = False
-        consolidation += 1
-        for i in range(1, len(arr)-consolidation):
-            if arr[i-1] > arr[i]:
-                arr[i-1], arr[i] = arr[i], arr[i-1]
-                swapping = True
+def bubble_sort(arr: list) -> list:
+    n = len(arr)
+    for i in range(0, n-1):
+        for j in range(0, n-1-i):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
     return arr
 
 
