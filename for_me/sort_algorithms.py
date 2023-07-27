@@ -5,6 +5,16 @@ def select_sort(arr: list) -> list:
     return new_list
 
 
+def insert_sort(arr: list) -> list:
+    n = len(arr)
+    for i in range(n):
+        for j in range(i, 0, -1):
+            if arr[j-1] > arr[j]:
+                arr[j-1], arr[j] = arr[j], arr[j-1]
+            else: break
+    return arr
+
+
 def bubble_sort(arr):
     swapping = True
     consolidation = -1
@@ -19,7 +29,7 @@ def bubble_sort(arr):
 
 
 def main():
-    print(bubble_sort([5, 1, 8, 1, 3, 5, 1, 2, 3, 2, 4]))
+    print(insert_sort([5, 1, 8, 1, 3, 5, 1, 2, 3, 2, 4]))
 
 
 if __name__ == '__main__':
