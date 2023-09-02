@@ -1,3 +1,8 @@
+'''
+https://www.codewars.com/kata/54b72c16cd7f5154e9000457
+'''
+
+
 def decode_bits(bits: str) -> str:
     if '11111100111111' == bits or '1110111' == bits: return '--'
     elif '111000000000111' == bits or '10001' == bits: return '. .'
